@@ -1,0 +1,73 @@
+{
+  "name": "@pebrianz/prettier-plugin-void-html",
+  "description": "Prettier plugin to print void HTML elements without self-closing syntax",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "license": "MIT",
+  "homepage": "https://github.com/pebrianz/prettier-plugin-void-html#readme",
+  "keywords": [
+    "prettier",
+    "prettier-plugin",
+    "html",
+    "void"
+  ],
+  "author": {
+    "email": "pebrianz117@gmail.com",
+    "name": "Pebrian",
+    "url": "https://github.com/pebrianz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pebrianz/prettier-plugin-void-html.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pebrianz/prettier-plugin-void-html/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "packageManager": "yarn@4.9.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "yarn build && vitest run",
+    "build": "tsup",
+    "check-exports": "attw --pack .",
+    "lint": "prettier . -c && eslint . && tsc",
+    "test": "vitest run",
+    "ci": "yarn lint && yarn build && yarn check-exports && yarn test",
+    "prepublishOnly": "npm run ci",
+    "local-release": "changeset version && changeset publish"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.1",
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.4",
+    "@eslint/js": "9.20.0",
+    "@types/node": "22.13.1",
+    "eslint": "9.20.0",
+    "eslint-config-prettier": "10.0.1",
+    "eslint-plugin-prettier": "5.2.3",
+    "prettier": "3.5.0",
+    "tsup": "^8.5.0",
+    "typescript": "5.7.3",
+    "typescript-eslint": "8.24.0",
+    "vitest": "^3.1.4"
+  },
+  "peerDependencies": {
+    "prettier": "3.0.0 - 3.5.x"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
+  }
+}
